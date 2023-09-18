@@ -1,12 +1,42 @@
-const APIKey = "c3d8e7f2513dd67d45c80051f29482bc";
+const apiKey = "c3d8e7f2513dd67d45c80051f29482bc";
 
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=Nairobi";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-async function checkWeather() {
-    const res = await fetch(apiUrl + `&appid=${APIKey}`);
-    var data = res.json();
+const searchBox = document.querySelector('.search input');
+const searchBtn = document.querySelector('.search button');
+const weatherIcon = document.querySelector('.weather-icon');
 
-    console.log(data);
+async function checkWeather(city) {
+    const res = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+    if (res.status == 404) {
+        document.querySelector('.error').style.display = 'block';
+    } else {
+        var data = await res.json();
+
+        document.querySelector('.city').innerHTML = data.name;
+        document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
+        document.querySelector('.humidity').innerHTML = data.main.humidity + '%';
+        document.querySelector('.wind').innerHTML = Math.round(data.wind.speed) + 'Km/h';
+
+        if (data.weather[0].main == 'Clouds') {
+            weatherIcon.src = 'Images/clouds.png'
+        } else if (data.weather[0].main == 'Clear') {
+            weatherIcon.src = 'Images/clear.png'
+        } else if (data.weather[0].main == 'Rain') {
+            weatherIcon.src = 'Images/rain.png'
+        } else if (data.weather[0].main == 'Drizzle') {
+            weatherIcon.src = 'Images/drizzle.png'
+        } else if (data.weather[0].main == 'Mist') {
+            weatherIcon.src = 'Images/mist.png'
+        }
+
+        document.querySelector('.weather').style.display = "block";
+        document.querySelector('.error').style.display = 'none';
+    }
+
 }
 
-checkWeather();
+searchBtn.addEventListener('click', () => {
+    checkWeather(searchBox.value);
+})

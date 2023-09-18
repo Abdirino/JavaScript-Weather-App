@@ -5,12 +5,22 @@
 }
 body{
     background: rgb(230, 228, 228);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.header{
+    font-size: 35px;
+    margin: 40px auto 0;
 }
 .card{
     width: 89%; max-width: 500px;
-    background: linear-gradient(145deg, rgb(2, 131, 131), rgb(2, 171, 92));
+    background: linear-gradient(145deg, rgb(1, 112, 112), rgb(3, 196, 106));
     color: #fff;
-    margin: 100px auto 0;
+    margin: 40px auto 0;
     border-radius: 18px;
     padding: 40px 35px;
     text-align: center;
@@ -76,4 +86,76 @@ body{
     font-size: 27px;
     margin-top: -6px;
     font-weight: lighter;
+}
+
+.weather{
+    display: none;
+}
+
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: red;
+    display: none;
+}
+
+@media(max-width: 567px){
+    .search input{
+        border: 0; outline: 0;
+        background: #ebfffc;
+        padding: 10px 21px;
+        height: 37px;
+        border-radius: 35px;
+        flex: 1;
+        margin-right: 7px;
+        font-size: 14px;
+    }
+    .search button{
+        border: 0; outline: 0;
+        background: #ebfffc;
+        border-radius: 100px;
+        /* width: 60px; height: 60px; */
+        cursor: pointer;
+    }
+    .search button img{
+        width: 10px;
+    }
+    .weather-icon{
+        width: 110px;
+        margin-top: 30px;
+    }
+    .weather h1{
+        font-size: 50px;
+        font-weight: 500;
+    }
+    .weather h2{
+        font-size: 30px;
+        font-weight: 400;
+        margin-top: -10px;
+    }
+    .details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4px;
+        margin-top: 50px;
+        gap: 2rem;
+    }
+    .col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+    }
+    .col img{
+        width: 30px;
+        margin-right: 6px;
+    }
+    .humidity, .wind{
+        font-size: 18px;
+        margin-top: -4px;
+        font-weight: lighter;
+    }
 }

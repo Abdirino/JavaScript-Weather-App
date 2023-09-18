@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Weather App - Reliable JS Weather App using API</title>
+    <title>JavaScript Weather App - Reliable JS Weather App using OpenWeatherMap API</title>
     <link rel="website icon" type="png" href="JS-Weather-App.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <h1 class="header">JavaScript Weather App</h1>
 
     <div class="card">
 
@@ -19,8 +21,12 @@
             </button>
         </div>
 
+        <div class="error">
+            <p>Invalid City Name</p>
+        </div>
+
         <div class="weather">
-            <img src="Images/rain.png" class="weather-icon" alt="">
+            <img src="Images/clouds.png" class="weather-icon" alt="">
             <h1 class="temp">25°C</h1>
             <h2 class="city">Nairobi</h2>
             <div class="details">
